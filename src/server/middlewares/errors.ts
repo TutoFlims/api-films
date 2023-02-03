@@ -1,5 +1,5 @@
 import CustomError from "../../utils/CustomError.js";
-import logger from "../../utils/logger.js";
+import Logger from "../../utils/Logger.js";
 import type { NextFunction, Request, Response } from "express";
 
 export const notFoundEndpoint = (
@@ -26,7 +26,7 @@ export const generalError = (
   const statusCode = error.statusCode ?? 500;
   const publicMessage = error.publicMessage || "General error";
 
-  logger.error(`There was an status ${statusCode} and error ${error.message}`);
+  Logger.error(`There was an status ${statusCode} and error ${error.message}`);
 
   res.status(statusCode).json({
     code: statusCode,

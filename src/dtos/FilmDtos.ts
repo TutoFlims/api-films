@@ -1,5 +1,5 @@
 import type { Film, FilmRaw } from "../types/films";
-import logger from "../utils/logger.js";
+import Logger from "../utils/Logger.js";
 import { parseDate, parsePoster } from "../utils/parsers.js";
 
 class FilmDtos implements Film {
@@ -41,7 +41,7 @@ class FilmDtos implements Film {
         imdb: `https://www.imdb.com/title/${data.imdb_id}`,
       };
     } catch (error: unknown) {
-      logger.error(
+      Logger.error(
         `Error with parse data film ${data.id}, ${(error as Error).message}`,
       );
     }
