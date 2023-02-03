@@ -3,13 +3,16 @@ import "./loadEnvironments.js";
 import chalk from "chalk";
 import debugCreator from "debug";
 
-const debug = debugCreator("system:server");
+class Logger {
+  private readonly debug = debugCreator("system:server");
 
-export default {
   info(message: string) {
-    debug(chalk.blueBright(message));
-  },
+    this.debug(chalk.blueBright(message));
+  }
+
   error(message: string) {
-    debug(chalk.redBright(message));
-  },
-};
+    this.debug(chalk.redBright(message));
+  }
+}
+
+export default new Logger();

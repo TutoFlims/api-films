@@ -1,10 +1,10 @@
 {
-  "name": "films",
+  "name": "api-films",
   "version": "1.0.0",
   "description": "",
-  "keywords": [],
-  "author": "",
+  "author": "Tutitoos",
   "license": "ISC",
+  "keywords": [],
   "main": "build/index.js",
   "type": "module",
   "scripts": {

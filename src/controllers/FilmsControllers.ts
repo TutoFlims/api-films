@@ -1,4 +1,4 @@
-import CustomError from "../CustomError/CustomError.js";
+import CustomError from "../utils/CustomError.js";
 import FilmsServices from "../services/FilmsServices.js";
 import type { NextFunction, Request, Response } from "express";
 

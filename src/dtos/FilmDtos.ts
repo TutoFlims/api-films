@@ -1,5 +1,6 @@
 import type { Film, FilmRaw } from "../types/films";
 import logger from "../utils/logger.js";
+import { parseDate, parsePoster } from "../utils/parsers.js";
 
 class FilmDtos implements Film {
   id: number;
@@ -25,9 +26,9 @@ class FilmDtos implements Film {
         title: data.original_title,
         language: data.original_language,
       };
-      this.poster = this.parsePoster(data.poster_path);
+      this.poster = parsePoster(data.poster_path);
       this.duration = `${data.runtime} min`;
-      this.year = this.parseDate(data.release_date);
+      this.year = parseDate(data.release_date);
       this.genres = data.genres.map((genre) => genre.name);
       this.directors = []; // Obtener desde API
       this.actors = []; // Obtener desde API
@@ -40,31 +41,12 @@ class FilmDtos implements Film {
         imdb: `https://www.imdb.com/title/${data.imdb_id}`,
       };
     } catch (error: unknown) {
-      console.log(data.release_date);
       logger.error(
         `Error with parse data film ${data.id}, ${(error as Error).message}`,
       );
     }
 
     return this;
-  }
-
-  parseDate(date: string): string {
-    try {
-      return date.split("-")[0];
-    } catch {
-      return "N/A";
-    }
-  }
-
-  parsePoster(poster: string): string {
-    try {
-      return `https://image.tmdb.org/t/p/original/${
-        poster.split("/")[1].split(".")[0]
-      }.jpg`;
-    } catch {
-      return "N/A";
-    }
   }
 }
 
