@@ -1,3 +1,4 @@
+import FilmsListRepositories from "../respositories/FilmsListRepositories.js";
 import type { Request, Response } from "express";
 
 class HomeControllers {
@@ -36,6 +37,16 @@ class HomeControllers {
             "Returns the details of the specified film record, using the film Id as a parameter to identify the desired film.",
         },
       ],
+    });
+  }
+
+  async getUpdateRepositories(req: Request, res: Response) {
+    const filmsListRepositories = new FilmsListRepositories();
+    await filmsListRepositories.upgradeRepositories();
+
+    return res.status(200).json({
+      status: 200,
+      data: "Upgrade repositories of films",
     });
   }
 }

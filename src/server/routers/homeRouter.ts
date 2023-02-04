@@ -8,5 +8,6 @@ const { home } = routes;
 
 homeRouter.get(home.ping, homeControllers.getPing);
 homeRouter.get(home.endpoints, homeControllers.getEndpoints);
+homeRouter.get(home.updateRepositories, homeControllers.getUpdateRepositories);
 
 export default homeRouter;

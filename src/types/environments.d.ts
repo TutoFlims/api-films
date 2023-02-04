@@ -5,6 +5,8 @@ interface Environments {
   tmdbImageUrl: string;
   imdbUrl: string;
   filmsListUrl: string;
+  omdbApiKey: string;
+  omdbApiUrl: string;
   port: number;
 }
 

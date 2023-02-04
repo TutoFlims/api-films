@@ -1,6 +1,6 @@
 import type { Film, FilmRaw } from "../types/films";
 import Logger from "../utils/Logger.js";
-import { parseDate, parsePoster } from "../utils/parsers.js";
+import Parser from "../utils/Parser.js";
 
 class FilmDtos implements Film {
   id: number;
@@ -26,9 +26,9 @@ class FilmDtos implements Film {
         title: data.original_title,
         language: data.original_language,
       };
-      this.poster = parsePoster(data.poster_path);
+      this.poster = Parser.poster(data.poster_path);
       this.duration = `${data.runtime} min`;
-      this.year = parseDate(data.release_date);
+      this.year = Parser.date(data.release_date);
       this.genres = data.genres.map((genre) => genre.name);
       this.directors = []; // Obtener desde API
       this.actors = []; // Obtener desde API
