@@ -11,6 +11,13 @@ const startServer = async (port: number) =>
     });
 
     server.on("error", (error: Error) => {
+      if (error.message.includes("EADDRINUSE")) {
+        Logger.error(
+          `There was an error in server, port ${port} is already in use`,
+        );
+        return;
+      }
+
       Logger.error(`There was an error in server ${error.message}`);
 
       reject(error);

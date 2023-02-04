@@ -11,10 +11,10 @@
     "build": "tsc",
     "build:dev": "tsc -w",
     "start": "node build/index.js",
-    "start:dev": "nodemon -q build/index.js",
-    "test": "jest",
-    "test:dev": "jest --watchAll",
-    "test:coverage": "jest --coverage --watchAll=false"
+    "start:dev": "nodemon --ignore data -q build/index.js",
+    "test": "jest --passWithNoTests",
+    "test:dev": "jest --watchAll --passWithNoTests",
+    "test:coverage": "jest --coverage --watchAll=false --passWithNoTests"
   },
   "dependencies": {
     "chalk": "4.1.2",

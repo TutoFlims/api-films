@@ -3,6 +3,7 @@ const routes = {
     root: "/",
     ping: "/",
     endpoints: "/endpoints",
+    updateRepositories: "/update-repositories",
   },
   films: {
     root: "/films",

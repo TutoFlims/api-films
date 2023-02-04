@@ -10,13 +10,13 @@ module.exports = {
       files: ["*.ts", "*.tsx"],
       rules: {
         "no-unused-vars": ["error"],
+        "no-implicit-coercion": "off",
         "@typescript-eslint/consistent-type-definitions": [
           "error",
           "interface",
         ],
         "@typescript-eslint/indent": "off",
         "@typescript-eslint/no-empty-function": "off",
-        "no-implicit-coercion": "off",
       },
     },
     {
