@@ -5,7 +5,7 @@ import type { Film } from "../types/films";
 class FilmsServices {
   async getFilms(): Promise<Film[]> {
     const filmsListRepositories = new FilmsListRepositories();
-    const filmsList = await filmsListRepositories.getAll();
+    const filmsList = filmsListRepositories.getAll();
 
     const films = filmsList.map((filmRaw) => {
       const filmDto = new FilmDtos();

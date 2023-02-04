@@ -5,7 +5,7 @@ import type { Film } from "../types/films";
 class FilmServices {
   async getFilmById(id: number): Promise<Film | undefined> {
     const filmsListRepositories = new FilmsListRepositories();
-    const filmsList = await filmsListRepositories.getAll();
+    const filmsList = filmsListRepositories.getAll();
 
     const filmRaw = filmsList.find((filmData) => filmData.id === id);
     if (!filmRaw) return;

@@ -14,7 +14,12 @@
     "start:dev": "nodemon --ignore data -q build/index.js",
     "test": "jest --passWithNoTests",
     "test:dev": "jest --watchAll --passWithNoTests",
-    "test:coverage": "jest --coverage --watchAll=false --passWithNoTests"
+    "test:coverage": "jest --coverage --watchAll=false --passWithNoTests",
+    "lint:rome": "rome check src",
+    "lint:eslint": "eslint --ignore-path .gitignore . --max-warnings 0",
+    "lint:staged": "lint-staged",
+    "lint": "npm run lint:rome && npm run lint:eslint && npm run lint:staged",
+    "lint:install": "npm install -g rome eslint lint-staged"
   },
   "dependencies": {
     "chalk": "4.1.2",
